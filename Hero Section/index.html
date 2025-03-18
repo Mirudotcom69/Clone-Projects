@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/utils.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Hero Section</title>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="slider">
+            <div class="slider-container">
+                <img src="https://images.pexels.com/photos/12501605/pexels-photo-12501605.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 1">
+                <img src="girl.jpg" alt="Image 2">
+                <img src="girl2.jpg" alt="Image 2">
+                <img src="https://images.pexels.com/photos/5269462/pexels-photo-5269462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 2">
+                <img src="https://images.pexels.com/photos/5269427/pexels-photo-5269427.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 2">
+                <img src="https://images.pexels.com/photos/319973/pexels-photo-319973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 2">
+                <img src="https://images.pexels.com/photos/20922479/pexels-photo-20922479/free-photo-of-back-of-a-sexy-brunette-kneeling-on-the-coast.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 3">
+                <img src="https://images.pexels.com/photos/12502143/pexels-photo-12502143.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 4">
+                <img src="https://images.pexels.com/photos/12501605/pexels-photo-12501605.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Duplicate Image 1"> <!-- Duplicated first image -->
+            </div>
+        </div>
+    </div>
+
+    <script >
+        const sliderContainer = document.querySelector(".slider-container");
+        const images = document.querySelectorAll(".slider-container img");
+        let index = 0;
+        const totalImages = images.length - 1; // Ignore duplicated image in counting
+
+        function slideNext() {
+            index++;
+
+            sliderContainer.style.transition = "transform 0.5s ease-in-out";
+            sliderContainer.style.transform = `translateX(${-index * 100}vw)`;
+
+            // When reaching the duplicate image, instantly reset to the real first image
+            if (index === totalImages) {
+                setTimeout(() => {
+                    sliderContainer.style.transition = "none"; // Disable transition for instant jump
+                    sliderContainer.style.transform = "translateX(0px)";
+                    index = 0;
+                }, 500); // Delay until the transition is completed
+            }
+        }
+
+        // Auto slide every 3 seconds
+        setInterval(slideNext, 10000);
+
+    </script>
+</body>
+</html>

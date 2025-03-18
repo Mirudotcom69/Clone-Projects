@@ -1,0 +1,17 @@
+.hero-section{
+    width: 90%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 32px auto;
+}
+
+.slider{
+    width: 100vw;
+    height: 80vh;
+    border-radius: 20px;
+}
+
+.slider-container{
+    display: flex;
+}
